@@ -150,13 +150,15 @@ with col1:
 
 with col2:
 
-    credit_amount = st.number_input(
-        "Credit Amount",
-        min_value=250,
-        max_value=20000,
-        value=5000
+    credit_amount = st.slider(
+    "Credit Amount",
+    min_value=1000,
+    max_value=1000000,
+    value=50000,
+    step=5000
     )
 
+    st.write(f"Selected Loan Amount: ₹{credit_amount:,.0f}")
 with col3:
 
     duration = st.number_input(
