@@ -106,7 +106,10 @@ scaler = joblib.load(scaler_path)
 with st.sidebar:
 
     st.title("Instructions")
-
+    st.image(
+    "https://images.unsplash.com/photo-1554224155-6726b3ff858f",
+    use_container_width=True
+    )
     st.markdown("""
     ### Steps
     
@@ -169,7 +172,6 @@ with col2:
     f"<h4 style='color:#1f2937;'>Selected Loan Amount: ₹{credit_amount:,.0f}</h4>",
     unsafe_allow_html=True
     )
-    st.write(f"Selected Loan Amount: ₹{credit_amount:,.0f}")
 with col3:
 
     duration = st.number_input(
@@ -310,7 +312,7 @@ input_data = pd.DataFrame({
 # =====================================================
 
 numerical_cols = ['Age', 'Credit amount', 'Duration']
-
+download_data = input_data.copy()
 input_data[numerical_cols] = scaler.transform(
     input_data[numerical_cols]
 )
@@ -608,7 +610,7 @@ if st.button("Predict Credit Risk"):
 
 st.markdown("---")
 
-csv = input_data.to_csv(index=False)
+csv = download_data.to_csv(index=False)
 
 st.download_button(
     label="Download Prediction Data",
