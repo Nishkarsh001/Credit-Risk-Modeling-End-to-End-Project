@@ -44,12 +44,20 @@ h2, h3 {
 /* Buttons */
 .stButton > button {
     background-color: #2563eb;
-    color: white;
+    color: white !important;
     border-radius: 12px;
-    height: 3em;
+    height: 3.2em;
     width: 100%;
     font-size: 18px;
+    font-weight: 600;
     border: none;
+    transition: 0.3s;
+}
+
+/* Button Hover Effect */
+.stButton > button:hover {
+    background-color: #1d4ed8;
+    color: white !important;
 }
 
 /* Metric Cards */
@@ -157,7 +165,10 @@ with col2:
     value=50000,
     step=5000
     )
-
+    st.markdown(
+    f"<h4 style='color:#1f2937;'>Selected Loan Amount: ₹{credit_amount:,.0f}</h4>",
+    unsafe_allow_html=True
+    )
     st.write(f"Selected Loan Amount: ₹{credit_amount:,.0f}")
 with col3:
 
