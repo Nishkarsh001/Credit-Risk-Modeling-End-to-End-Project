@@ -110,7 +110,7 @@ with st.sidebar:
     image_path = os.path.join(BASE_DIR, "assets", "finance.jpg")
 
     if os.path.exists(image_path):
-        st.image(image_path, use_container_width=True)
+        st.image(image_path, width=250)
     else:
         st.warning("Sidebar image not found.")
 
