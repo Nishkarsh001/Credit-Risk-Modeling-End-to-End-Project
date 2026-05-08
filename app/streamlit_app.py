@@ -107,9 +107,9 @@ with st.sidebar:
 
     st.title("Instructions")
     st.image(
-    "https://images.unsplash.com/photo-1554224155-6726b3ff858f",
+    os.path.join(BASE_DIR, "assets", "finance.jpg"),
     use_container_width=True
-    )
+)
     st.markdown("""
     ### Steps
     
