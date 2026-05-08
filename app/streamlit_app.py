@@ -83,6 +83,14 @@ div[data-baseweb="input"] {
     padding-top: 2rem;
 }
 
+/* Section Card */
+.section-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.05);
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -149,7 +157,7 @@ st.markdown("""
 # =====================================================
 # CUSTOMER DETAILS SECTION
 # =====================================================
-
+st.markdown('<div class="section-card">', unsafe_allow_html=True)
 st.markdown("## 👤 Customer Details")
 
 col1, col2, col3 = st.columns(3)
@@ -184,7 +192,7 @@ with col3:
         max_value=72,
         value=24
     )
-
+st.markdown('</div>', unsafe_allow_html=True)
 # =====================================================
 # LOAN DETAILS
 # =====================================================
@@ -316,7 +324,27 @@ input_data = pd.DataFrame({
 # =====================================================
 
 numerical_cols = ['Age', 'Credit amount', 'Duration']
-download_data = input_data.copy()
+download_data = pd.DataFrame({
+
+    "Age": [age],
+
+    "Sex": [sex],
+
+    "Job Level": [job],
+
+    "Housing": [housing],
+
+    "Saving Accounts": [saving_accounts],
+
+    "Checking Account": [checking_account],
+
+    "Credit Amount": [credit_amount],
+
+    "Duration": [duration],
+
+    "Purpose": [purpose]
+
+})
 input_data[numerical_cols] = scaler.transform(
     input_data[numerical_cols]
 )
