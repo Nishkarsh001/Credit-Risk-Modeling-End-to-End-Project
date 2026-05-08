@@ -5,7 +5,8 @@ import joblib
 import plotly.graph_objects as go
 import plotly.express as px
 import shap
-
+import os
+import joblib
 # =====================================================
 # PAGE CONFIG
 # =====================================================
@@ -81,8 +82,14 @@ div[data-baseweb="input"] {
 # LOAD MODEL + SCALER
 # =====================================================
 
-model = joblib.load(r"../models/xgboost_model.pkl")
-scaler = joblib.load(r"../models/scaler.pkl")
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+model_path = os.path.join(BASE_DIR, "models", "xgboost_model.pkl")
+
+model = joblib.load(model_path)
+scaler_path = os.path.join(BASE_DIR, "models", "scaler.pkl")
+
+scaler = joblib.load(scaler_path)
 
 # =====================================================
 # SIDEBAR
