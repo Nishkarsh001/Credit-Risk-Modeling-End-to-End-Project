@@ -106,10 +106,11 @@ scaler = joblib.load(scaler_path)
 with st.sidebar:
 
     st.title("Instructions")
-    st.image(
-    os.path.join(BASE_DIR, "assets", "finance.jpg"),
-    use_container_width=True
-)
+
+    image_path = os.path.join(BASE_DIR, "assets", "finance.jpg")
+
+    st.image(image_path, use_container_width=True)
+    
     st.markdown("""
     ### Steps
     
